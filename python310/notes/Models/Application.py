@@ -1,4 +1,3 @@
-
 # Задание
 # Реализовать консольное приложение заметки, с сохранением, чтением,
 # добавлением, редактированием и удалением заметок. Заметка должна
@@ -15,28 +14,18 @@
 from python310.notes.DataBase.db.db import DB
 from python310.notes.Models.Add_note import Add_new_note
 from python310.notes.Presenter.P_console.P_user_data.printer import printer
+from python310.notes.UI.UInterface.interface_console.text_interface import txtInterface
 
 
 class Application(object):
 
     def main(self):
         alpha = DB("alpha")
-        # alpha.dbase = []
         flag = True
-        printer("Добро пожаловать не в Notepad--\nДля работы со мной выберите опцию ниже :\n").prints()
+        printer(txtInterface().greeting).prints()
         while (flag):
-            printer("\n\
-            1 - Import Notes from file;\n\
-            2 - Export Notes to file;\n\
-            3 - Create a new Note;\n\
-            4 - View all notes;\n\
-            5 - View all notes with the latest showing first;\n\
-            6 - View a specific note;\n\
-            7 - Check how many notes you have;\n\
-            8 - Edit a Note;\n\
-            9 - Delete a Note;\n\
-            0 - Exit.").prints()
-            command = input("Enter command: ")
+            printer(txtInterface().first_menu).prints()
+            command = input(txtInterface().enter_command)
             if command == "1":
                 # notes = importFromFile()
                 print("1111")
@@ -46,8 +35,8 @@ class Application(object):
             elif command =="3":
                 new_note = Add_new_note()
                 new_note.add_note() # type: ignore
-                alpha.dbase.append(new_note.note()) # type: ignore
-                printer("Not saved note!").prints()
+                alpha.dbase.append(new_note.note) # type: ignore
+                printer(txtInterface().not_save).prints()
             # elif command =="3":
                     # printAllData(notes)
                 # print("33333")
@@ -67,7 +56,7 @@ class Application(object):
                     # deleteNote(notes)
                 print("8888")
             elif command =="0":
-                    printer("Goodbye!").prints()
+                    printer(txtInterface().goodbye).prints()
                     flag = False
             else:
-                    printer("Incorrect unput").prints()
+                    printer(txtInterface.incorrect_input).prints()
