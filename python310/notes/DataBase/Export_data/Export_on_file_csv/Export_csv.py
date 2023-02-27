@@ -1,17 +1,19 @@
 import csv
 from python310.notes.Presenter.P_console.P_user_data.printer import printer
-# from python310.notes.Models import Note
+from python310.notes.UI.UInterface.Interface_console.Path import Path
+from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtInterface
 
-class Write_csv:
+class Export_csv:
     def __init__(self, notes):
       self.notes = notes
+      self.path = Path().PATH_CSV
 
     def writeToFile(self):
         if (len(self.notes) > 0):
-            with open('python310/notes/DataBase/Data/data_csv/db.csv', 'w') as data:
+            with open(self.path, 'w') as data:
                 writer = csv.writer(data, delimiter=";", lineterminator="\r")
                 for x in self.notes:
-                    writer.writerow([x.id_note, x.title, x.body, x.date])
-            printer("Notes saved!").prints()
+                    writer.writerow([x.id_note, x.title, x.body, x.date_create])
+            printer(TxtInterface().notes_saved).prints()
         else:
-            printer("Notes are empty!").prints()
+            printer(TxtInterface().notes_empty).prints()

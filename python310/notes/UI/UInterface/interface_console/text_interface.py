@@ -1,7 +1,7 @@
 
 
 
-class txtInterface:
+class TxtInterface:
     greeting = "Добро пожаловать не в Notepad--\nДля работы со мной выберите опцию ниже :\n"
     enter_title = "Enter title: "
     enter_note = "Enter your note: "
@@ -21,3 +21,7 @@ class txtInterface:
     not_save = "Not saved note!"
     goodbye = "Goodbye!"
     incorrect_input = "Incorrect unput"
+    notes_imported = "Notes imported!"
+    notes_empty = "Notes are empty!"
+    notes_saved = "Notes saved!"
+    show_notes = "All notes : "
