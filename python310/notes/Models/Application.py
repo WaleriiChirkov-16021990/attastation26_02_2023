@@ -15,6 +15,8 @@ from python310.notes.DataBase.Export_data.Export_on_file_csv.Export_csv import E
 from python310.notes.DataBase.Import_data.Import_on_file_csv.Import_csv import Import_csv
 from python310.notes.DataBase.db.Db import DB
 from python310.notes.Models.Add_note import Add_new_note
+from python310.notes.Models.Del_note import Del_note
+from python310.notes.Models.Edit_note import Edit_note
 from python310.notes.Presenter.P_console.P_data.Show_data import Show_data
 from python310.notes.Presenter.P_console.P_user_data.printer import printer
 from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtInterface
@@ -30,35 +32,28 @@ class Application(object):
             printer(TxtInterface().first_menu).prints()
             command = input(TxtInterface().enter_command)
             if command == "1":
-                import_c = Import_csv()
-                alpha.dbase = import_c.importFromFile()
+                importer = Import_csv()
+                alpha.dbase = importer.importFromFile()
             elif command == "2":
-                export_c = Export_csv(alpha.dbase)
-                export_c.writeToFile()
+                exporter = Export_csv(alpha.dbase)
+                exporter.writeToFile()
             elif command =="3":
-                new_note = Add_new_note()
-                new_note.add_note() # type: ignore
-                alpha.dbase.append(new_note.note) # type: ignore
+                adder = Add_new_note()
+                adder.add_note()
+                alpha.dbase.append(adder.note)
                 printer(TxtInterface().not_save).prints()
-            # elif command =="3":
-                    # printAllData(notes)
-                # print("33333")
             elif command =="4":
                 show_must_go_on = Show_data(alpha.dbase)
                 show_must_go_on.show()
-                print("44444")
             elif command =="5":
-                    # printSpecificData(notes)
-                print("5555")
+                shower = Show_data(alpha.dbase)
+                shower.show_last_note()
             elif command =="6":
-                    # seeNotesAmount(notes)
-                print("6666")
+                editor = Edit_note(alpha.dbase)
+                editor.edit()
             elif command =="7":
-                    # editNote(notes)
-                print("77777")
-            elif command =="8":
-                    # deleteNote(notes)
-                print("8888")
+                deleter = Del_note(alpha.dbase)
+                deleter.delete()
             elif command =="0":
                     printer(TxtInterface().goodbye).prints()
                     flag = False

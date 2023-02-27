@@ -10,7 +10,19 @@ class Show_data:
         self.stringi = notes
 
     def show(self):
-        printer(TxtInterface().show_notes).prints()
-        for member in self.stringi:
-            flash = Show_note(member)
-            printer(flash.printNote()).prints()
+        if len(self.stringi) > 0:
+            printer(TxtInterface().show_notes).prints()
+            for member in self.stringi:
+                flash = Show_note(member)
+                printer(flash.printNote()).prints()
+        else:
+            printer(TxtInterface().notes_empty).prints()
+
+
+    def show_last_note(self):
+        if len(self.stringi) > 0:
+            printer(TxtInterface().show_last).prints()
+            last = Show_note(self.stringi[-1])
+            printer(last.printNote()).prints()
+        else:
+            printer(TxtInterface().notes_empty).prints()
