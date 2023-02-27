@@ -1,4 +1,5 @@
-
+# Класс читая ввод пользователя в консоли
+# формирует новую заметку.
 
 
 from python310.notes.UI.UInput.Input_console.Input_data import Input_console_data

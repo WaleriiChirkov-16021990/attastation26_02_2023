@@ -1,5 +1,7 @@
+# Класс записи базы данных в файл csv
+
 import csv
-from python310.notes.Presenter.P_console.P_user_data.printer import printer
+from python310.notes.Presenter.P_console.P_user_data.Printer import Printer
 from python310.notes.UI.UInterface.Interface_console.Path import Path
 from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtInterface
 
@@ -14,6 +16,6 @@ class Export_csv:
                 writer = csv.writer(data, delimiter=";", lineterminator="\r")
                 for x in self.notes:
                     writer.writerow([x.id_note, x.title, x.body, x.date_create])
-            printer(TxtInterface().notes_saved).prints()
+            Printer(TxtInterface().notes_saved).prints()
         else:
-            printer(TxtInterface().notes_empty).prints()
+            Printer(TxtInterface().notes_empty).prints()

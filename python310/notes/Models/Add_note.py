@@ -1,3 +1,5 @@
+# Класс компоненты, которая принимает ввод пользователя
+# из консоли и формирует экземпляр типа Note (заметка)
 
 
 from python310.notes.Models.Note import Note
@@ -5,7 +7,6 @@ from python310.notes.UI.UInput.Input_console.Input_note import Input_console_not
 
 
 class Add_new_note:
-
     def __init__(self):
         self.note = Note()
 

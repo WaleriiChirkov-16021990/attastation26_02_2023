@@ -25,3 +25,4 @@ class TxtInterface:
     notes_empty = "Notes are empty!"
     notes_saved = "Notes saved!"
     show_notes = "All notes : "
+    show_last = "Last note: "
