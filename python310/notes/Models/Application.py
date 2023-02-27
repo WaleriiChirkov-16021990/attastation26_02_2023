@@ -40,16 +40,12 @@ class Application(object):
                 new_note.add_note() # type: ignore
                 alpha.dbase.append(new_note.note) # type: ignore
                 printer(TxtInterface().not_save).prints()
-            # elif command =="3":
-                    # printAllData(notes)
-                # print("33333")
             elif command =="4":
                 show_must_go_on = Show_data(alpha.dbase)
                 show_must_go_on.show()
-                print("44444")
             elif command =="5":
-                    # printSpecificData(notes)
-                print("5555")
+                last = Show_data(alpha.dbase)
+                last.show_last_note()
             elif command =="6":
                     # seeNotesAmount(notes)
                 print("6666")
