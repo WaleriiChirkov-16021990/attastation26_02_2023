@@ -1,3 +1,6 @@
+# Класс чтения базы данных из файла csv
+
+
 import csv
 from python310.notes.Models.Note import Note
 from python310.notes.Presenter.P_console.P_user_data.Printer import Printer

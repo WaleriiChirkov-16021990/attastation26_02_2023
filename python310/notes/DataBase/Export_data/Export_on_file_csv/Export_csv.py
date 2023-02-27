@@ -1,3 +1,5 @@
+# Класс записи базы данных в файл csv
+
 import csv
 from python310.notes.Presenter.P_console.P_user_data.Printer import Printer
 from python310.notes.UI.UInterface.Interface_console.Path import Path

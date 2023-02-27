@@ -1,4 +1,4 @@
-
+# Класс отображает всю базу в консоль, либо последнюю заметку из базы
 
 from python310.notes.Presenter.P_console.P_note.Show_note import Show_note
 from python310.notes.Presenter.P_console.P_user_data.Printer import Printer
@@ -7,7 +7,7 @@ from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtIn
 
 class Show_data:
     def __init__(self, notes):
-        self.stringi = notes
+        self.stringi = notes #this data
 
     def show(self):
         if len(self.stringi) > 0:

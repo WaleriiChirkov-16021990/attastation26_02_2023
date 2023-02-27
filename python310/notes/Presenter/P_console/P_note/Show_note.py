@@ -1,8 +1,4 @@
-
-
-
-
-# from python310.notes.Models.Note import Note
+# Класс для форматированного вывода заметки и всех ее полей в консоль
 
 
 class Show_note:
