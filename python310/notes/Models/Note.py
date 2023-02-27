@@ -1,5 +1,6 @@
-import os
+
 from datetime import datetime
+from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtInterface
 
 
 class Note:
@@ -7,8 +8,8 @@ class Note:
 
     def __init__(self):
        self.id_note = Note.id + 1
-       self.title = 'Empty'
-       self.body = 'Empty'
+       self.title = TxtInterface.is_empty
+       self.body = TxtInterface.is_empty
        self.date_create = datetime.today()
        Note.id +=1
 
@@ -17,3 +18,9 @@ class Note:
         self.title = title
         self.body = body
         self.date_create = date
+        if id > Note.id:
+            Note.id = id
+
+    def edite(self, title, body):
+        self.title = title
+        self.body = body
