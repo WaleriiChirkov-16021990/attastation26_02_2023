@@ -1,4 +1,5 @@
-
+# Класс статичных констант, предусмотрен для локального изменения
+# текстровых сообщений пользователю.
 
 
 class TxtInterface:
@@ -26,3 +27,8 @@ class TxtInterface:
     notes_saved = "Notes saved!"
     show_notes = "All notes : "
     show_last = "Last note: "
+    edit_note = "Enter Title note for edit: "
+    current_title = "текущий заголоdок: "
+    current_note = "текущяя заметка: "
+    enter_ID = "Enter ID note for delete: "
+    note_deleted = "Note deleted"
