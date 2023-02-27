@@ -12,5 +12,5 @@ class Add_new_note:
     def add_note(self):
         note_input = Input_console_note()
         note_input.input_note()
-        self.title = note_input.title
-        self.body = note_input.body
+        self.note.title = note_input.title
+        self.note.body = note_input.body
