@@ -1,7 +1,7 @@
 
 
 
-class printer:
+class Printer:
     def __init__(self, strihgi):
         self.stringi = strihgi
 
