@@ -18,7 +18,7 @@ from python310.notes.Models.Add_note import Add_new_note
 from python310.notes.Models.Del_note import Del_note
 from python310.notes.Models.Edit_note import Edit_note
 from python310.notes.Presenter.P_console.P_data.Show_data import Show_data
-from python310.notes.Presenter.P_console.P_user_data.printer import printer
+from python310.notes.Presenter.P_console.P_user_data.Printer import Printer
 from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtInterface
 
 
@@ -27,9 +27,9 @@ class Application(object):
     def main(self):
         alpha = DB("alpha")
         flag = True
-        printer(TxtInterface().greeting).prints()
+        Printer(TxtInterface().greeting).prints()
         while (flag):
-            printer(TxtInterface().first_menu).prints()
+            Printer(TxtInterface().first_menu).prints()
             command = input(TxtInterface().enter_command)
             if command == "1":
                 importer = Import_csv()
@@ -41,7 +41,7 @@ class Application(object):
                 adder = Add_new_note()
                 adder.add_note()
                 alpha.dbase.append(adder.note)
-                printer(TxtInterface().not_save).prints()
+                Printer(TxtInterface().not_save).prints()
             elif command =="4":
                 show_must_go_on = Show_data(alpha.dbase)
                 show_must_go_on.show()
@@ -55,7 +55,7 @@ class Application(object):
                 deleter = Del_note(alpha.dbase)
                 deleter.delete()
             elif command =="0":
-                    printer(TxtInterface().goodbye).prints()
+                    Printer(TxtInterface().goodbye).prints()
                     flag = False
             else:
-                    printer(TxtInterface.incorrect_input).prints()
+                    Printer(TxtInterface.incorrect_input).prints()
