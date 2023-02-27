@@ -20,7 +20,3 @@ class Note:
         self.date_create = date
         # if id > Note.id:
             # Note.id = id
-
-    def edite(self, title, body):
-        self.title = title
-        self.body = body
