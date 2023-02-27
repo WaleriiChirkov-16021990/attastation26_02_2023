@@ -26,9 +26,3 @@ class Edit_note(Note):
            printer(item.body).prints()
            titler.input_data(TxtInterface.enter_note)
            item.body = titler.input
-
-
-
-
-
-
