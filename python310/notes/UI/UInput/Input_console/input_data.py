@@ -6,4 +6,3 @@ class Input_console_data:
 
     def input_data(self, quenstion):
         self.input = input(quenstion)
-

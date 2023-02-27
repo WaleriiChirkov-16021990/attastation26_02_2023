@@ -16,21 +16,16 @@ class Edit_note(Note):
         editor.show()
         titler = Input_console_data()
         titler.input_data("Enter Title note for edit: ")
-        # temp = list(filter(lambda x: x.title.count(titler.input), self.edition))# type: ignore
-        for parsek in range(len(self.edition)):
-            if self.edition[parsek].title.count(titler.input):
-                printer("текущий заголовок: ").prints()
-                printer(self.edition[parsek].title).prints()
-                self.edition[parsek].title = titler.input_data(TxtInterface.enter_title)
-                printer("текущяя заметка: ").prints()
-                printer(self.edition[parsek].body).prints()
-                self.edition[parsek].body = titler.input_data(TxtInterface.enter_note)
-        # for item in temp:
-        #    printer("текущий заголоdок: ").prints()
-        #    printer(item.title).prints()
-        #    item.title = Input_console_data().input_data(TxtInterface.enter_title)
-        #    printer("текущяя заметка: ").prints()
-        #    item.body = Input_console_data().input_data(TxtInterface.enter_note)
+        temp = list(filter(lambda x: x.title.count(titler.input), self.edition)) # type: ignore
+        for item in temp:
+           printer("текущий заголоdок: ").prints()
+           printer(item.title).prints()
+           titler.input_data(TxtInterface.enter_title)
+           item.title = titler.input
+           printer("текущяя заметка: ").prints()
+           printer(item.body).prints()
+           titler.input_data(TxtInterface.enter_note)
+           item.body = titler.input
 
 
 

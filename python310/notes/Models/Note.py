@@ -18,8 +18,8 @@ class Note:
         self.title = title
         self.body = body
         self.date_create = date
-        if id > Note.id:
-            Note.id = id
+        # if id > Note.id:
+            # Note.id = id
 
     def edite(self, title, body):
         self.title = title
