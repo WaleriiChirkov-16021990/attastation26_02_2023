@@ -1,6 +1,5 @@
 # Класс чтения базы данных из файла csv
 
-
 import csv
 from python310.notes.Models.Note import Note
 from python310.notes.Presenter.P_console.P_user_data.Printer import Printer
@@ -10,7 +9,8 @@ from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtIn
 class Import_csv:
 
     def __init__(self):
-      self.path = Path().PATH_CSV # для исключения ошибок сделаю пока так
+        self.path = Path().PATH_CSV # для исключения ошибок сделаю пока так
+
 
     def importFromFile(self):
         notes = []

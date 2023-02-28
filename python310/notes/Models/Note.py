@@ -23,6 +23,5 @@ class Note:
         self.title = title
         self.body = body
         self.date_create = date
-        if (isinstance(id, int)):
-            if int(id) > Note.id:
-                Note.id = int(id)
+        if int(id) > Note.id:
+            Note.id = int(id)

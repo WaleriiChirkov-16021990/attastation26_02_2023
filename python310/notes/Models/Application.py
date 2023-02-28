@@ -11,14 +11,18 @@
 #                       Application
 
 
+import os.path
 from python310.notes.DataBase.Export_data.Export_on_file_csv.Export_csv import Export_csv
+from python310.notes.DataBase.Export_data.Export_on_file_json.Export_json import Export_json
 from python310.notes.DataBase.Import_data.Import_on_file_csv.Import_csv import Import_csv
+from python310.notes.DataBase.Import_data.Import_on_file_json.Import_json import Import_json
 from python310.notes.DataBase.db.Db import DB
 from python310.notes.Models.Add_note import Add_new_note
 from python310.notes.Models.Del_note import Del_note
 from python310.notes.Models.Edit_note import Edit_note
 from python310.notes.Presenter.P_console.P_data.Show_data import Show_data
 from python310.notes.Presenter.P_console.P_user_data.Printer import Printer
+from python310.notes.UI.UInterface.Interface_console.Path import Path
 from python310.notes.UI.UInterface.Interface_console.Text_interface import TxtInterface
 
 
@@ -32,11 +36,17 @@ class Application(object):
             Printer(TxtInterface().first_menu).prints()
             command = input(TxtInterface().enter_command)
             if command == "1":
-                importer = Import_csv()
-                alpha.dbase = importer.importFromFile()
+                if os.path.isfile(Path().PATH_CSV):
+                    importer = Import_csv()
+                    alpha.dbase = importer.importFromFile()
+                else:
+                    Printer(TxtInterface.not_file).prints()
             elif command == "2":
-                exporter = Export_csv(alpha.dbase)
-                exporter.writeToFile()
+                if os.path.isfile(Path().PATH_CSV):
+                    exporter = Export_csv(alpha.dbase)
+                    exporter.writeToFile()
+                else:
+                    Printer(TxtInterface.not_file).prints()
             elif command =="3":
                 adder = Add_new_note()
                 adder.add_note()
@@ -54,8 +64,22 @@ class Application(object):
             elif command =="7":
                 deleter = Del_note(alpha.dbase)
                 deleter.delete()
+            elif command =="8":
+                if os.path.isfile(Path.PATH_JSON):
+                    exporter = Export_json(alpha.dbase)
+                    exporter.write()
+                else:
+                    Printer(TxtInterface.not_file).prints()
+            elif command =="9":
+                if os.path.isfile(Path.PATH_JSON):
+                    importer = Import_json()
+                    importer.read_file()
+                    importer.parse_input()
+                    alpha.dbase = importer.parse_data
+                else:
+                    Printer(TxtInterface.not_file).prints()
             elif command =="0":
                     Printer(TxtInterface().goodbye).prints()
                     flag = False
             else:
-                    Printer(TxtInterface.incorrect_input).prints()
+                    Printer(TxtInterface().incorrect_input).prints()
